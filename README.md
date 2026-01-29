@@ -3,13 +3,20 @@
 ## Procedural Horse Race Algorithm
 
 ```
-create prototype for advance funtion
+create prototype for advance function
 create prototype for printLane functuon
 create prototype for isWinner function
 
 create main function
     create array with four 0s called horsePosition
-    
+    win = FALSE
+    while isWinner == FALSE:
+        for horseNum in 0-4:
+            advance(horseNum, horsePosition[horseNum])
+            printLane(horseNum, horsePosition[horseNum])
+            win = isWinner(horseNum, horsePosition[horseNum])
+        print "Press enter for the next turn"
+        take user input
 
 create function advance(horseNum, int* horses)
     create random device
@@ -25,15 +32,18 @@ create function advance(horseNum, int* horses)
     return 0
 
 create function printLane(horseNum, int* horses):
-    for 0 to horsePosition:
+    for 0 < horsePosition:
         print "."
     print horseNum
-    for 0 to (14 - horsePosition[horseNum]):
+    for 0 < (14 - horsePosition[horseNum]):
         print "."
 
 create function isWinner(horseNum, int* horses):
     if horsePosition[horseNum] == 15:
         win = True
+        print "Horse [horseNum] is the winner!!!"
     else:
         win = False
-        
+    return win
+
+
