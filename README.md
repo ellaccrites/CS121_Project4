@@ -7,22 +7,27 @@ create prototype for advance function
 create prototype for printLane functuon
 create prototype for isWinner function
 
+create random device
+make random integer output 1 or 0
+
 create main function
     create array with four 0s called horsePosition
     win = FALSE
-    while isWinner == FALSE:
+    keepGoing = 0;
+    while keepGoing == 0:
         for horseNum in 0-4:
             advance(horseNum, horsePosition[horseNum])
             printLane(horseNum, horsePosition[horseNum])
             win = isWinner(horseNum, horsePosition[horseNum])
-        print "Press enter for the next turn"
-        take user input
+        if win == TRUE:
+            keepGoing = 1
+        else:
+            print "Press enter for the next turn"
+            take user input
 
 create function advance(horseNum, int* horses)
-    create random device
-    make random integer output 1 or 0
-
-    for horse in horsePosition:
+    initialize i = 0
+    for 0 to i:
         coin = random 0 or 1
         
         if coin is 0:
@@ -32,10 +37,11 @@ create function advance(horseNum, int* horses)
     return 0
 
 create function printLane(horseNum, int* horses):
-    for 0 < horsePosition:
+    initialize i = 0
+    for 0 to 5:
         print "."
     print horseNum
-    for 0 < (14 - horsePosition[horseNum]):
+    for 0 to (14 - horsePosition[horseNum]):
         print "."
 
 create function isWinner(horseNum, int* horses):
