@@ -3,9 +3,9 @@
 std::random_device rd;
 std::uniform_int_distribution<int> dist(0,1);
 
-void advance(int horseNum, int* horses);
-void printLane(int horseNum, int* horses);
-bool isWinner(int horseNum, int* horses);
+void advance(int horseNum, int* horsePos);
+void printLane(int horseNum, int* horsePos);
+bool isWinner(int horseNum, int* horsePos);
 
 int main(){
 	int horses[] = {0, 0, 0, 0, 0};
@@ -23,9 +23,9 @@ int main(){
 		if( win == 1){
 			keepGoing = 1;
 		} else {
-			std::string next;
-			std::cout << "Enter a character to continue ";
-			std::cin >> next;
+			std::string next = "\n";
+			std::cout << "Press enter to continue ";
+			getline(std::cin, next);
 			std::cout << std::endl;
 		}// end if
 	} // end while
@@ -52,7 +52,7 @@ void printLane(int horseNum, int* horsePos){
 } // end printLane
 
 bool isWinner(int horseNum, int* horsePos){
-	if(*horsePos == 15){
+	if(*horsePos == 14){
 		std::cout << "Horse " << horseNum << " is the winner!!!" << std::endl;
 		return true;
 	} else {
