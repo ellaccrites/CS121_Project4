@@ -8,36 +8,54 @@ void printLane(int horseNum, int* horses);
 bool isWinner(int horseNum, int* horses);
 
 int main(){
-	int horses[] = {0, 0, 0, 0};
-	/*
-	win = FALSE
-    	while isWinner == FALSE:
-        	for horseNum in 0-4:
-            	advance(horseNum, &horsePosition[horseNum])
-            	printLane(horseNum, &horsePosition[horseNum])
-            	win = isWinner(horseNum, &horsePosition[horseNum])
-        print "Press enter for the next turn"
-        take user input
-	*/
+	int horses[] = {0, 0, 0, 0, 0};
+	int i = 0;
+	int keepGoing = 0;
+	while(keepGoing == 0){
+		int win = 0;
+		for(i = 0; i < 5; i++){
+			advance(i, &horses[i]);
+			printLane(i, &horses[i]);
+			if(isWinner(i, &horses[i]) == true){
+				win = 1;
+			} // end if
+		} //end for
+		if( win == 1){
+			keepGoing = 1;
+		} else {
+			std::string next;
+			std::cout << "Enter a character to continue ";
+			std::cin >> next;
+			std::cout << std::endl;
+		}// end if
+	} // end while
+	std::cout << std::endl;
 } // end main
-void advance(int horseNum; int* horses){
-	i = 0;
-	for(i = 0; i < 5; i++){
-		coin = dist(rd);
-		if(coin == 1){
-			*horses = *horses + 1;
-		} // end if
-	} // end for
+
+void advance(int horseNum, int* horsePos){
+	int coin = dist(rd);
+	if(coin == 1){
+		*horsePos = *horsePos + 1;
+	} // end if
 } // end advance
 
-void printLane(int horseNum, int* horses){
-	i = 0;
-	for(i = 0; i < *horses; i++){
-		std::cout << " .";
+void printLane(int horseNum, int* horsePos){
+	int i = 0;
+	for(i = 0; i < *horsePos; i++){
+		std::cout << ".";
 	} // end for
-	std::cout << " " << horseNum << " ";
-	for(i = 0; i < (14 - *horses; i++)){
-		std::cout << " . ";
-	} // end for
+	std::cout << horseNum;
+	for(i = 0; i < 14 - *horsePos; i++){
+		std::cout << ".";
+	} //end for
+	std::cout << std::endl;
 } // end printLane
-			
+
+bool isWinner(int horseNum, int* horsePos){
+	if(*horsePos == 15){
+		std::cout << "Horse " << horseNum << " is the winner!!!" << std::endl;
+		return true;
+	} else {
+		return false;
+	} // end if
+} // end isWinner

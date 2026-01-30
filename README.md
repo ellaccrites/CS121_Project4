@@ -15,10 +15,11 @@ create main function
     win = FALSE
     keepGoing = 0;
     while keepGoing == 0:
-        for horseNum in 0-4:
-            advance(horseNum, horsePosition[horseNum])
-            printLane(horseNum, horsePosition[horseNum])
-            win = isWinner(horseNum, horsePosition[horseNum])
+        intialize integer i = 0
+        for i in 0-4:
+            advance(i, horsePosition[horseNum])
+            printLane(i, horsePosition[horseNum])
+            win = isWinner(i, horsePosition[horseNum])
         if win == TRUE:
             keepGoing = 1
         else:
@@ -26,22 +27,17 @@ create main function
             take user input
 
 create function advance(horseNum, int* horses)
-    initialize i = 0
-    for 0 to i:
-        coin = random 0 or 1
-        
-        if coin is 0:
-            horsePosition[horse] stays the same
-        if coin is 1:
-            horsePosition[horse] increases by one
+    coin = random 0 or 1
+    if coin == 1:
+        horsePosition[horse] increases by 1
     return 0
 
 create function printLane(horseNum, int* horses):
-    initialize i = 0
-    for 0 to 5:
+    initialize integer i = 0
+    for i in 0 to 5:
         print "."
     print horseNum
-    for 0 to (14 - horsePosition[horseNum]):
+    for i in 0 to (14 - horsePosition[horseNum]):
         print "."
 
 create function isWinner(horseNum, int* horses):
