@@ -4,7 +4,7 @@
 
 ```
 create prototype for advance function
-create prototype for printLane functuon
+create prototype for printLane function
 create prototype for isWinner function
 
 create random device
@@ -21,11 +21,11 @@ create main function
             printLane(i, horsePos[i])
             if isWinner(i, horsePos[i]) == true:
                 win = 1
-    if win = 1:
-        keepGoing = 1
-    else:
-        print "Press enter for the next turn"
-        take user input
+        if win = 1:
+            keepGoing = 1
+        else:
+            print "Press enter for the next turn"
+            take user input
 
 create function advance(integer horseNum, pointer horsePos)
     coin = random 0 or 1
@@ -43,10 +43,9 @@ create function printLane(integer horseNum, pointer horsePos):
 
 create function isWinner(integer horseNum, pointer horsePos):
     if horsePosition[horseNum] == 14:
-        win = True
         print "Horse [horseNum] is the winner!!!"
+        return true
     else:
-        win = False
-    return win
+        return false
 
 
